@@ -73,7 +73,7 @@ export default function LaSapeMindMap() {
         { source: 'GODTET', target: 'Suite' },
         { source: 'GODTET', target: 'Meditations' },
         { source: 'GODTET', target: '+Strings' },
-        { source: 'Godriguez', target: "Vol. 1 '14-'18" },
+        { source: 'Godriguez', target: "Vol. 1 '14-18" },
         { source: 'Horatio Luna', target: 'Cultural Warriors' },
         { source: 'Horatio Luna', target: 'Yes Doctor' },
         { source: 'James Wright Trio', target: 'Pieces (Remix)' },
@@ -102,11 +102,10 @@ export default function LaSapeMindMap() {
     const Graph = ForceGraph3D()(containerRef.current)
       .graphData(data)
       .nodeAutoColorBy('group')
-      .nodeOpacity(node => node.group === 'archived' ? 0.3 : 1)
+      .nodeOpacity(node => node.group === 'archived' ? 0.2 : 1)
       .nodeLabel('id')
-      .linkDirectionalParticles(0)
       .backgroundColor('#000011')
-      .d3Force('charge').strength(-150);
+      .d3Force('charge').strength(-160);
 
     return () => {
       Graph._destructor?.();
