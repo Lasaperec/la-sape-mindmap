@@ -105,7 +105,10 @@ export default function LaSapeMindMap() {
       .nodeOpacity(node => node.group === 'archived' ? 0.2 : 1)
       .nodeLabel('id')
       .backgroundColor('#000011')
-      .d3Force('charge').strength(-160);
+      .d3Force('charge').strength(-400) // Stronger repulsion
+      .onEngineStop(() => {
+        Graph.zoomToFit(400, 100); // Zoom out to fit the graph
+      });
 
     return () => {
       Graph._destructor?.();
