@@ -1,47 +1,29 @@
-
-import { useEffect, useRef } from "react";
-import ForceGraph3D from "react-force-graph-3d";
-import SpriteText from "three-spritetext";
-
-const data = {
-  nodes: [
-    { id: "La Sape Records", group: "sun" },
-    { id: "GODTET", group: "artist" },
-    { id: "GODTET III", group: "album" }
-  ],
-  links: [
-    { source: "La Sape Records", target: "GODTET" },
-    { source: "GODTET", target: "GODTET III" }
-  ]
-};
+import React, { useEffect, useRef } from 'react';
+import ForceGraph3D from 'force-graph';
 
 export default function LaSapeMindMap() {
-  const fgRef = useRef();
+  const containerRef = useRef();
 
   useEffect(() => {
-    if (fgRef.current) {
-      fgRef.current.d3Force("charge").strength(-160);
-    }
+    const Graph = ForceGraph3D()(containerRef.current)
+      .graphData({
+        nodes: [
+          { id: 'La Sape Records', group: 'sun' },
+          { id: 'GODTET', group: 'artist' },
+          { id: 'GODTET III', group: 'album' }
+        ],
+        links: [
+          { source: 'La Sape Records', target: 'GODTET' },
+          { source: 'GODTET', target: 'GODTET III' }
+        ]
+      })
+      .backgroundColor('#000011')
+      .nodeAutoColorBy('group');
+
+    return () => {
+      if (Graph) Graph._destructor();
+    };
   }, []);
 
-  return (
-    <div className="w-full h-screen">
-      <ForceGraph3D
-        ref={fgRef}
-        graphData={data}
-        backgroundColor="#000011"
-        nodeAutoColorBy="group"
-        nodeThreeObjectExtend={true}
-        nodeThreeObject={node => {
-          const sprite = new SpriteText(node.id);
-          sprite.color = node.group === "sun" ? "gold" : node.group === "artist" ? "lightblue" : "white";
-          sprite.textHeight = 6;
-          sprite.opacity = node.archived ? 0.5 : 1.0;
-          return sprite;
-        }}
-        linkColor={() => "rgba(255,255,255,0.2)"}
-        linkOpacity={0.5}
-      />
-    </div>
-  );
+  return <div ref={containerRef} style={{ width: '100vw', height: '100vh' }} />;
 }
