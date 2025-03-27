@@ -73,7 +73,7 @@ export default function LaSapeMindMap() {
         { source: 'GODTET', target: 'Suite' },
         { source: 'GODTET', target: 'Meditations' },
         { source: 'GODTET', target: '+Strings' },
-        { source: 'Godriguez', target: \"Vol. 1 '14–'18\" },
+        { source: 'Godriguez', target: "Vol. 1 '14-'18" },
         { source: 'Horatio Luna', target: 'Cultural Warriors' },
         { source: 'Horatio Luna', target: 'Yes Doctor' },
         { source: 'James Wright Trio', target: 'Pieces (Remix)' },
