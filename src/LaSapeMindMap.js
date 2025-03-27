@@ -28,7 +28,7 @@ export default function LaSapeMindMap() {
         { id: 'Suite', group: 'album' },
         { id: 'Meditations', group: 'album' },
         { id: '+Strings', group: 'album' },
-        { id: \"Vol. 1 '14–'18\", group: 'album' },
+        { id: "Vol. 1 '14–'18\", group: 'album' },
         { id: 'Cultural Warriors', group: 'album' },
         { id: 'Yes Doctor', group: 'album' },
         { id: 'Pieces (Remix)', group: 'album' },
