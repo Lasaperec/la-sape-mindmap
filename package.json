@@ -1,0 +1,19 @@
+{
+  "name": "la-sape-mindmap",
+  "version": "1.0.0",
+  "private": true,
+  "dependencies": {
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0",
+    "react-force-graph-3d": "^1.43.0",
+    "react-scripts": "5.0.1",
+    "three": "^0.157.0",
+    "three-spritetext": "^1.10.6"
+  },
+  "scripts": {
+    "start": "react-scripts start",
+    "build": "react-scripts build",
+    "test": "react-scripts test",
+    "eject": "react-scripts eject"
+  }
+}
